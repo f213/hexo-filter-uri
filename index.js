@@ -9,10 +9,13 @@ hexo.extend.filter.register('after_post_render', function(data){
     });
 
     $('a').each(function(){
-        var link_host = URI.parse($(this).attr('href'))['host']
-            .replace(/^www\./g, '');
+        var link_host = URI.parse($(this).attr('href'))['host'];
 
-        if(link_host !== blog_host){
+        if(!link_host){
+            return;
+        }
+
+        if(link_host.replace(/^www\./g, '') !== blog_host){
             $(this).attr('rel', 'external'); 
         }
     });
