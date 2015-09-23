@@ -26,6 +26,16 @@ hexo.extend.filter.register('after_post_render', function(data){
         );
     });
 
+    $('img').each(function(){ // temporary workaround for https://github.com/hexojs/hexo/pull/1345
+        var $this = $(this);
+        if($this.attr('src')){
+            var src = $this.attr('src');
+            $this.attr('src',
+                src.replace(/^\/\//, '/')
+            );
+        };
+    });
+
     data.content = $.html();
     return data;
 });
