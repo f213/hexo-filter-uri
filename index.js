@@ -12,13 +12,10 @@ hexo.extend.filter.register('after_post_render', function(data){
         var $this = $(this),
             href = $this.attr('href');
 
-        var link_host = URI.parse(href)['host'];
+        /* var link_host = URI.parse(href)['host'];
         if(!link_host){
             return;
-        }
-        if(link_host.replace(/^www\./g, '') !== blog_host){
-            $this.attr('rel', 'external');
-        }
+        } */
 
         // temporary workaround for https://github.com/hexojs/hexo/pull/1345
         $this.attr('href',
