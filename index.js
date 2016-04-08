@@ -23,7 +23,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
         if ('relative_link' in hexo.config && !hexo.config.relative_link && href.substr(0,4)!== 'http'){
             $this.attr('href',
-                href.replace(/^([a-z])/, '/$1')
+                href.replace(/^([0-9a-zA-Z])/, '/$1')
             );
         }
     });
