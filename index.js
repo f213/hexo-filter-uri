@@ -12,20 +12,21 @@ hexo.extend.filter.register('after_post_render', function(data){
         var $this = $(this),
             href = $this.attr('href');
 
-
-        // temporary workaround for https://github.com/hexojs/hexo/pull/1345
-
-        $this.attr('href',
-            href.replace(/^\/\//, '/')
-        );
+        if(href.substr(0,1) === '#'){
+            return;
+        }
 
         // disable unwanted relative links
 
         if ('relative_link' in hexo.config && !hexo.config.relative_link && href.substr(0,4)!== 'http'){
-            $this.attr('href',
-                href.replace(/^([0-9a-zA-Z])/, '/$1')
-            );
+            href = href.replace(/^(\w)/i, '/$1');
         }
+
+        // temporary workaround for https://github.com/hexojs/hexo/pull/1345
+
+        href = href.replace(/^\/\//, '/');
+
+        $this.attr('href', href);
     });
 
     $('img').each(function(){ // temporary workaround for https://github.com/hexojs/hexo/pull/1345
