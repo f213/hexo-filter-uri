@@ -1,6 +1,6 @@
 {
   "name": "hexo-filter-uri",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hexo plugin for normalizing urls",
   "main": "index.js",
   "scripts": {
