@@ -2,10 +2,9 @@
   "name": "hexo-filter-uri",
   "version": "0.0.1",
   "description": "Hexo plugin for normalizing urls",
-  "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,7 +22,11 @@
   },
   "homepage": "https://github.com/f213/hexo-filter-uri",
   "dependencies": {
-    "cheerio": "^0.19.0",
-    "uri-js": "^1.4.2"
+    "cheerio": "^0.19.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "sprintf": "^0.1.5"
   }
 }
